@@ -1,4 +1,4 @@
-#Snake Game
+# Snake Game
 <br />Welcome to my Snake game! This game is written in HTML and JavaScript and can be played in any modern web browser.
 
 How to Play
