@@ -129,6 +129,8 @@ class Snake extends Sprite {
     this.direction = "Left";
     this.newDirection = "idle";
     this.itterator = 0;
+    this.speedBump = 0;
+    this.pieceEaten = 0;
   }
 
   has_game_ended() {
@@ -150,11 +152,15 @@ class Snake extends Sprite {
   eat() {
     const head = { x: this.body[0].x + dx, y: this.body[0].y + dy };
     this.body.unshift(head);
+    this.pieceEaten++;
+    if (this.speedBump <= 7 && this.pieceEaten%2 == 0)
+      this.speedBump++;
+    
   }
 
   move() {
     this.itterator++;
-    if (this.itterator == 6) {
+    if (this.itterator == (14-this.speedBump)) {
       var head = { x: this.body[0].x + dx, y: this.body[0].y + dy };
       this.body.unshift(head);
       this.body.pop();
